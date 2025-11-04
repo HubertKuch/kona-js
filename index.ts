@@ -3,7 +3,11 @@ import type { Kona, KonaMessage } from "./types";
 const konaImpl: Kona = {
   _callbacks: {},
 
-  call: function (controller: string, action: string, payload: any): Promise<any> {
+  call: function (
+    controller: string,
+    action: string,
+    payload: any,
+  ): Promise<any> {
     return new Promise((resolve, reject) => {
       const callbackId = `cb_${Date.now()}_${Math.random().toString(36).substring(2)}`;
       this._callbacks[callbackId] = { resolve, reject };
@@ -12,7 +16,7 @@ const konaImpl: Kona = {
         controller,
         action,
         payload,
-        callbackId
+        callbackId,
       };
 
       try {
@@ -36,7 +40,7 @@ const konaImpl: Kona = {
       }
       delete this._callbacks[callbackId];
     }
-  }
+  },
 };
 
 window.kona = konaImpl;

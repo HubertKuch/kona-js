@@ -1,0 +1,31 @@
+{
+  "name": "kona-js",
+  "module": "index.ts",
+  "type": "module",
+  "version": "1.1.0",
+  "author": {
+    "name": "Hubert Kuch",
+    "url": "https://github.com/HubertKuch",
+    "email": "kuchhubert@gmail.com"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "build": "bun build index.ts --outdir dist",
+    "prepublishOnly": "bun run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "types": "./dist/index.d.ts"
+}

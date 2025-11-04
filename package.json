@@ -2,7 +2,7 @@
   "name": "kona-js",
   "module": "index.ts",
   "type": "module",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "JavaScript helpers for JKona (Kona) framework",
   "author": {
     "name": "Hubert Kuch",
@@ -22,6 +22,9 @@
     "build:js": "bun build ./index.ts --outfile=./dist/index.js --target=node",
     "build:types": "tsc --emitDeclarationOnly --declaration --outDir dist",
     "build": "bun run build:js && bun run build:types"
+  },
+  "exports": {
+    ".": "./dist/index.js"
   },
   "types": "./dist/index.d.ts",
   "main": "dist/index.js"

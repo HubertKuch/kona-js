@@ -1,5 +1,7 @@
 import type { Kona, KonaMessage } from "./types";
 
+export * from "./types";
+
 const konaImpl: Kona = {
   _callbacks: {},
 
